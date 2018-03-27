@@ -1,0 +1,48 @@
+<html>
+	<head>
+	<center>
+		<link rel="stylesheet" href="compiled/flipclock.css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<script src="compiled/flipclock.js"></script>
+	</center>
+	</head>
+	<body>
+	<div class="clock" style="margin:2em;"></div>
+	<div class="message"></div>
+
+	<script type="text/javascript">
+		var clock;
+		
+		$(document).ready(function() {
+			var clock;
+
+			clock = $('.clock').FlipClock({
+		        clockFace: 'DailyCounter',
+		        autoStart: false,
+		        callbacks: {
+		        	stop: function() {
+		        		$('.message').html('The clock has stopped!')
+		        	}
+		        }
+		    });
+				    
+		    clock.setTime(000000);
+		    clock.setCountdown(false);
+		    clock.start();
+		    
+		document.body.onkeyup = function(e){
+  		  if(e.keyCode == 32){
+        	clock.setTime(000000);
+        	clock.start();
+    		}
+		}
+
+		});
+	</script>
+	<img src="nonsense.png" height = "142" width = "960">
+	<br>
+	<h>(hit spacebar after a nonsense-occurence)</h>
+	</body>
+</html>
